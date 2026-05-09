@@ -6,20 +6,20 @@ class Lead(models.Model):
     MEDIUM='medium'
     HIGH='high'
     CHOICES_PRIORITY=(
-        (LOW,'LOW'),
-        (MEDIUM,'MEDIUM'),
-        (HIGH,'HIGH')
+        (LOW,'Low'),
+        (MEDIUM,'Medium'),
+        (HIGH,'High')
         )
-    NEW="new"
-    CONTACTED="contacted"
-    WON="won"
-    LOST="lost"
+    NEW='New'
+    CONTACTED='Contacted'
+    WON='Won'
+    LOST='Lost'
 
     CHOICES_STATUS=(
-        (NEW,'new'),
-        (CONTACTED,'CONTACTED'),
-        (WON,'won'),
-        (LOST,'lost')
+        (NEW,'New'),
+        (CONTACTED,'Contacted'),
+        (WON,'Won'),
+        (LOST,'Lost')
     )
     name=models.CharField(max_length=255)
     email=models.EmailField()
@@ -28,7 +28,7 @@ class Lead(models.Model):
     choice_status=models.CharField(max_length=10,choices= CHOICES_STATUS,default=NEW)
     created_by=models.ForeignKey(User,related_name='leads',on_delete=models.CASCADE)
     created_at=models.DateTimeField(auto_now_add=True)
-    modified_at=models.DateField(auto_now=True)
+    modified_at=models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name

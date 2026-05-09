@@ -2,5 +2,6 @@ from django.urls import path
 from . import views 
 
 urlpatterns = [
+    path('',views.lead_list,name="leads_list"),
     path("add_lead/",views.add_lead,name='add_lead')
 ]

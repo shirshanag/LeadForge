@@ -4,5 +4,5 @@ from .models import Lead
 class AddLeadForm(forms.ModelForm):
     class Meta:
         model=Lead
-        fields=('name','email','decription','priority','choice_status')
+        fields=('name','email','description','priority','choice_status')
 
