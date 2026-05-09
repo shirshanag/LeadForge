@@ -8,6 +8,10 @@ def lead_list(request):
     leads=Lead.objects.filter(created_by=request.user)
     return render(request,"leads/leads_list.html",{'leads':leads})
 @login_required
+def lead_detail(request,pk):
+    lead=Lead.objects.filter(created_by=request.user).get(pk=pk)
+    return render(request,"leads/lead_detail.html",{'lead':lead})
+@login_required
 def add_lead(request):
     if request.method=="POST":
         form=AddLeadForm(request.POST)
