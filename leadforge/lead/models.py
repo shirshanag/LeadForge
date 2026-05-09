@@ -28,3 +28,7 @@ class Lead(models.Model):
     choice_status=models.CharField(max_length=10,choices= CHOICES_STATUS,default=NEW)
     created_by=models.ForeignKey(User,related_name='leads',on_delete=models.CASCADE)
     created_at=models.DateTimeField(auto_now_add=True)
+    modified_at=models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.name
